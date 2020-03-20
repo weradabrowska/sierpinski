@@ -1,23 +1,29 @@
-function getPoints (iterations) {
-
+function getTriangle () {
+    return '<svg>' +
+    '<polygon points="50,0 100,100 0,100"' +
+    'style="fill:black;stroke:lime;stroke-width:3;fill-rule:nonzero;" />' +
+  '</svg>';
 };
 
-function getTriangle (iterations) {
+function iterateOverTriangle(iterations) {
+    let result = '';
+    for(let i=0; i<iterations; i++) {
+        result += getTriangle();
+    }
+    return result;
+}
+
+function getIteratedTriangle (iterations) {
     if(isNaN(iterations) || iterations < 1) {
         return 'please enter positive integer...';
     }
 
-    const points = getPoints(iterations);
-
-    const htmlTriangle = '<svg width="400px" height="400px">' +
-    `<polygon points="${points}"` +
-    'style="fill:black;stroke:lime;stroke-width:3;fill-rule:evenodd;" />' +
-  '</svg>'
+    const htmlTriangle = iterateOverTriangle(iterations);
     return htmlTriangle;
 };
 
 function draw () {
     const iterationsNumber = document.getElementById('iterations').value;
     const triangleContainer = document.getElementById('triangle');
-    triangleContainer.innerHTML = getTriangle(iterationsNumber);
+    triangleContainer.innerHTML = getIteratedTriangle(iterationsNumber);
 }
