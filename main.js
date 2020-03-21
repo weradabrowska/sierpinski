@@ -1,5 +1,3 @@
-const MAX_SIZE = 400;
-
 function getTriangle () {
     return `<div style="flex:45% 0 0;">
         <svg viewBox="0 0 100 100">
