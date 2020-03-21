@@ -14,11 +14,11 @@ function iterateOverTriangle(iterations) {
     };
 
     if(iterations <= 1) {
-        const size = Math.floor(MAX_SIZE/(3*iterateOverTriangle.iterations));
+        const size = Math.floor(MAX_SIZE/(4*iterateOverTriangle.iterations));
         iterateOverTriangle.iterations = undefined;
         return getTriangle(size);
     } else {
-        return iterateOverTriangle(iterations-1).repeat(3);
+        return `<div style="display: flex; flex-wrap: wrap; flex: 45%">${iterateOverTriangle(iterations-1).repeat(3)}</div>`;
     }
 }
 
