@@ -1,13 +1,22 @@
-function getTriangle () {
-    return '<svg viewBox="0 0 100 100">' +
-    '<polygon points="50,0 100,100 0,100"/>' +
-  '</svg>';
+const MAX_SIZE = 400;
+
+function getTriangle (size) {
+    return `<div style="width: ${size}px;">
+        <svg viewBox="0 0 100 100">
+            <polygon points="50,0 100,100 0,100"/>
+        </svg>
+    </div>`;
 };
 
 function iterateOverTriangle(iterations) {
-    console.log(iterations)
+    if(typeof iterateOverTriangle.iterations === 'undefined') {
+        iterateOverTriangle.iterations = iterations;
+    };
+
     if(iterations <= 1) {
-        return getTriangle();
+        const size = Math.floor(MAX_SIZE/iterateOverTriangle.iterations);
+        iterateOverTriangle.iterations = undefined;
+        return getTriangle(size);
     } else {
         return iterateOverTriangle(iterations-1).repeat(3);
     }
