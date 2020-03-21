@@ -12,7 +12,7 @@ function iterateOverTriangle(iterations) {
     if(iterations <= 1) {
         return getTriangle();
     } else {
-        return `<div style="display: flex; flex-wrap: wrap; flex: 45% 0 0;">${iterateOverTriangle(iterations-1).repeat(3)}</div>`;
+        return `<div style="display: flex; flex-wrap: wrap; flex: 45% 0 0; justify-content: space-around;">${iterateOverTriangle(iterations-1).repeat(3)}</div>`;
     }
 }
 
