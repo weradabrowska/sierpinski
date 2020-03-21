@@ -1,7 +1,7 @@
 const MAX_SIZE = 400;
 
-function getTriangle (size) {
-    return `<div style="width: ${size}px; height: ${size}px;">
+function getTriangle () {
+    return `<div style="flex:45% 0 0;">
         <svg viewBox="0 0 100 100">
             <polygon points="50,0 100,100 0,100"/>
         </svg>
@@ -9,16 +9,10 @@ function getTriangle (size) {
 };
 
 function iterateOverTriangle(iterations) {
-    if(typeof iterateOverTriangle.iterations === 'undefined') {
-        iterateOverTriangle.iterations = iterations;
-    };
-
     if(iterations <= 1) {
-        const size = Math.floor(MAX_SIZE/(4*iterateOverTriangle.iterations));
-        iterateOverTriangle.iterations = undefined;
-        return getTriangle(size);
+        return getTriangle();
     } else {
-        return `<div style="display: flex; flex-wrap: wrap; flex: 45%">${iterateOverTriangle(iterations-1).repeat(3)}</div>`;
+        return `<div style="display: flex; flex-wrap: wrap; flex: 45% 0 0;">${iterateOverTriangle(iterations-1).repeat(3)}</div>`;
     }
 }
 
