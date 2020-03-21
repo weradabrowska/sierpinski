@@ -1,7 +1,7 @@
 const MAX_SIZE = 400;
 
 function getTriangle (size) {
-    return `<div style="width: ${size}px;">
+    return `<div style="width: ${size}px; height: ${size}px;">
         <svg viewBox="0 0 100 100">
             <polygon points="50,0 100,100 0,100"/>
         </svg>
@@ -14,7 +14,7 @@ function iterateOverTriangle(iterations) {
     };
 
     if(iterations <= 1) {
-        const size = Math.floor(MAX_SIZE/iterateOverTriangle.iterations);
+        const size = Math.floor(MAX_SIZE/(3*iterateOverTriangle.iterations));
         iterateOverTriangle.iterations = undefined;
         return getTriangle(size);
     } else {
